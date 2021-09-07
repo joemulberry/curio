@@ -11,7 +11,7 @@ for token_id in token_ids:
     response = requests.request("GET", url, headers=headers, params=querystring)
     orders=json.loads(response.text)['orders']
     dicts += orders
-    print(orders[0]['name'], 'added')
+    print(orders[0]['asset']['token_id'], orders[0]['asset']['name'], 'added')
 
 with open('orders.json', 'w') as fout:
     json.dump(dicts, fout)
